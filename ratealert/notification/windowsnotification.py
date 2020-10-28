@@ -10,7 +10,7 @@ class WindowsNotification:
         toaster = ToastNotifier()
         toaster.show_toast("Rate Alert!",
                            message["source"] + " 1 = " + message["target"] + " " + str(message["rate"]),
-                           duration=10)
+                           duration=5)
 
     def set_notification(self, message):
         """Set notification code for windows system"""

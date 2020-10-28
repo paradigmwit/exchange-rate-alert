@@ -1,4 +1,5 @@
 import json
+import time
 from sys import platform
 from ratealert.transferwiseclient import TransferwiseClient
 from ratealert.auth.linuxauth import LinuxAuth
@@ -10,8 +11,32 @@ from ratealert.notification.windowsnotification import WindowsNotification
 class ConversionAlert(object):
 
     def __init__(self, source, target):
+        """
+        Checks the transfer rate and creates an alert on demand
+
+        :param source: source currency
+        :param target: target currency
+        """
         self._thread = None
         self.set_alert(source, target)
+
+    def __init__(self, source, target, interval):
+        """
+        Creates a transfer alert which polls at the interval
+        :param source: source currency
+        :param target: target currency
+        :param interval: interval for polling
+        """
+        self._thread = None
+        self.set_alert(source, target)
+        try:
+            while True:
+                self.set_alert(source, target)
+                time.sleep(int(interval))
+        except KeyboardInterrupt:
+            exit(0)
+        except InterruptedError:
+            exit(0)
 
     def set_alert(self, source, target):
         """Displays a notification on the desktop with the conversion rate
@@ -42,6 +67,7 @@ class ConversionAlert(object):
 def _handle_response(response):
     json_response = json.loads(response.content.decode('utf8'))[0]
     return json_response
+
 
 def _identify_platform():
     """Identifies the system OS"""
