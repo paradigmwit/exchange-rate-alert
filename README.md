@@ -18,8 +18,17 @@ The program will try and find the access token in the following manner
 
 #### Usage 
 
-`from ratealert.conversionalert import ConversionAlert
-ConversionAlert(source, target, interval)`
+Install package from pip 
+- `pip install exchange-rate-alert`
+
+
+Import into python script
+- `from ratealert.conversionalert import ConversionAlert`
+
+Call the constructor, wait for alert, profit!
+- `ConversionAlert(source, target, interval)`
+
+--- 
 
 #### Example
 
