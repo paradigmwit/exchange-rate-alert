@@ -54,5 +54,3 @@ class TransferwiseClient(object):
 
 def _get_headers(token):
     return {'Authorization': 'Bearer ' + token}
-
-
