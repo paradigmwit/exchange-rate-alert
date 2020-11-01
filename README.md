@@ -1,11 +1,12 @@
 # Exchange Rate Alert
 ---
 
-Creates desktop alerts for Transferwise rate alerts at specified intervals in seconds.
+Creates desktop alerts for Transferwise exchange rates at specified intervals.
 
 ---
 
 #### Before Using
+
 Before the module can be used the user has to create a Transferwise API token. The detailed instructions can be found here - https://api-docs.transferwise.com/#payouts-guide-api-access  
 
 The program will try and find the access token in the following manner
@@ -32,8 +33,9 @@ Call the constructor, wait for alert, profit!
 
 #### Example
 
-`from ratealert.conversionalert import ConversionAlert
-ConversionAlert('SEK', 'INR', 300)`
+`from ratealert.conversionalert import ConversionAlert`
+
+`ConversionAlert('SEK', 'INR', 300)`
 
 This will create exchange rate alerts every 5 minutes. 
 
