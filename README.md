@@ -1,4 +1,4 @@
-# Exchange Rate Alert
+Exchange Rate Alert
 ---
 
 Creates desktop alerts when the Transferwise exchange rates hit a target rate. Tries every five minutes.
@@ -35,11 +35,11 @@ Call the constructor, wait for alert, profit!
 
 #### Example
 
-`from ratealert.conversionalert import ConversionAlert`
+`from ratealert import ConversionAlert`
 
 `ConversionAlert('SEK', 'INR', 8.5)`
 
-This will create an alert when the Transferwise exchange rate crosses the alert rate. 
+This will create a notification when the Transferwise exchange rate crosses the alert rate. 
 
 The rates will be checked every five minutes.
 
