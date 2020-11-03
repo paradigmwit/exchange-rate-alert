@@ -5,11 +5,11 @@ class WindowsNotification:
 
     def _set_notification(self, message):
         """Set notification for windows system"""
-        print(f"The conversion rate is - ", message)
+        print(message)
 
         toaster = ToastNotifier()
         toaster.show_toast("Rate Alert!",
-                           message["source"] + " 1 = " + message["target"] + " " + str(message["rate"]),
+                           message + " Get that Money!",
                            duration=5)
 
     def set_notification(self, message):

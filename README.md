@@ -1,7 +1,9 @@
 # Exchange Rate Alert
 ---
 
-Creates desktop alerts for Transferwise exchange rates at specified intervals.
+Creates desktop alerts when the Transferwise exchange rates hit a target rate. Tries every five minutes.
+
+Currently running on Windows, Linux support incoming.
 
 ---
 
@@ -24,10 +26,10 @@ Install package from pip
 
 
 Import into python script
-- `from ratealert.conversionalert import ConversionAlert`
+- `from ratealert import ConversionAlert`
 
 Call the constructor, wait for alert, profit!
-- `ConversionAlert(source, target, interval)`
+- `ConversionAlert(source, target, alert_rate)`
 
 --- 
 
@@ -35,14 +37,28 @@ Call the constructor, wait for alert, profit!
 
 `from ratealert.conversionalert import ConversionAlert`
 
-`ConversionAlert('SEK', 'INR', 300)`
+`ConversionAlert('SEK', 'INR', 8.5)`
 
-This will create exchange rate alerts every 5 minutes. 
+This will create an alert when the Transferwise exchange rate crosses the alert rate. 
+
+The rates will be checked every five minutes.
+
+Exit the script by Ctrl+C
+
+---
+
+#### Change notes
+
+0.3 - Alert on a target conversion rate
+ 
+0.1 - Alert at specified intervals
+
 
 ---
 
 #### Next steps
 
-- Alert on a target conversion rate
+- Linux support
+- OAuth login for Transferwise
 - Quotation request on target conversion rate
 

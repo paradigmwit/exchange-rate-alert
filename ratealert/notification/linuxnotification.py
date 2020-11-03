@@ -5,9 +5,9 @@ class LinuxNotification:
 
     def _set_notification(self, message):
         """Set notification for unix system"""
-        print(f"The conversion rate is - ", message)
+        print(message)
         # notify2.init('Rate Alert!')
-        # n = notify2.Notification(message["source"] + " 1 = " + message["target"] + " " + str(message["rate"]))
+        # n = notify2.Notification(current_rate["source"] + " 1 = " + current_rate["target"] + " " + str(current_rate["rate"]))
         # n.show()
 
     def set_notification(self, message):
