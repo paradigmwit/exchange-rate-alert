@@ -1,5 +1,6 @@
 import json
 import time
+import click
 from sys import platform
 from ratealert.transferwiseclient import TransferwiseClient
 from ratealert.auth.linuxauth import LinuxAuth
@@ -22,14 +23,14 @@ class ConversionAlert(object):
         try:
             alert_rate = float(alert_rate)
         except ValueError:
-            print('Enter a number as an alert rate')
+            click.echo('Enter a number as an alert rate')
             exit(0)
 
         authentication, notification = self._identify_platform()
         try:
             while True:
                 current_rate = self._check_rate(source, target, authentication)
-                print("The current exchange rate is - ", current_rate)
+                click.echo("The current exchange rate is - " + str(current_rate))
                 if current_rate > alert_rate:
                     self._set_alert(current_rate, notification)
                 time.sleep(int(300))
@@ -44,8 +45,8 @@ class ConversionAlert(object):
         try:
             token = client.load_auth_token(authentication)
         except FileNotFoundError:
-            print('Unable to find a bearer token. Exiting.')
-            print("""The program will try and find the access token in the following manner
+            click.echo('Unable to find a bearer token. Exiting.')
+            click.echo("""The program will try and find the access token in the following manner
                              1. System Variable named TCR
                              2. Configuration file - located at ~/.tcr on linux or 
                              %HOMEDRIVE%%HOMEPATH%/.tcr on windows""")

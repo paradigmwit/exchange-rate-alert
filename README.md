@@ -19,15 +19,25 @@ The program will try and find the access token in the following manner
                       
 ---
 
-#### Usage 
+#### Installation 
 
 Install package from pip 
 - `pip install exchange-rate-alert`
 
 
+#### Usage
+
+**From Command Prompt** 
+
+- `era --source=SEK --target=INR --alert-rate=8.5`
+- `era` and respond to prompts
+
+
+**As a python module** 
+
 Import into python script
 - `from ratealert import ConversionAlert`
-
+    
 Call the constructor, wait for alert, profit!
 - `ConversionAlert(source, target, alert_rate)`
 
@@ -35,9 +45,8 @@ Call the constructor, wait for alert, profit!
 
 #### Example
 
-`from ratealert import ConversionAlert`
-
-`ConversionAlert('SEK', 'INR', 8.5)`
+    from ratealert import ConversionAlert
+    ConversionAlert('SEK', 'INR', 8.5)
 
 This will create a notification when the Transferwise exchange rate crosses the alert rate. 
 
@@ -49,6 +58,8 @@ Exit the script by Ctrl+C
 
 #### Change notes
 
+0.4 - Command line execution, input prompts
+
 0.3 - Alert on a target conversion rate
  
 0.1 - Alert at specified intervals
@@ -58,7 +69,7 @@ Exit the script by Ctrl+C
 
 #### Next steps
 
-- Linux support
 - OAuth login for Transferwise
-- Quotation request on target conversion rate
+- Quotation request and transfer lock on target conversion rate
+- Linux support
 

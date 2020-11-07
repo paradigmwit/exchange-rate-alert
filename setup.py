@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='exchange-rate-alert',
-    version='0.3',
+    version='0.4',
     description='Create desktop alerts for Transferwise exchange rates',
     long_description=long_description,
     url='https://github.com/paradigmwit/exchange-rate-alert',
@@ -27,7 +27,11 @@ setuptools.setup(
         'pypiwin32',
         'setuptools',
         'win10toast',
+        'click'
       ],
+    entry_points = {
+        'console_scripts': ['era=era:main'],
+    },
     python_requires='>=3.6',
 )
 
