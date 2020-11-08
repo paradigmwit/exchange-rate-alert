@@ -3,7 +3,9 @@ Exchange Rate Alert
 
 Creates desktop alerts when the Transferwise exchange rates hit a target rate. Tries every five minutes.
 
-Currently running on Windows, Linux support incoming.
+![CMD_PROMPTS](./img/era_notification.jpg)
+
+Currently running on Windows, PIP version 20.0.1
 
 ---
 
@@ -24,16 +26,22 @@ The program will try and find the access token in the following manner
 Install package from pip 
 - `pip install exchange-rate-alert`
 
+---
 
 #### Usage
 
-**From Command Prompt** 
+**1. From Command Prompt** 
 
-- `era --source=SEK --target=INR --alert-rate=8.5`
+- `era --source SEK --target INR --alert-rate 8.5`
+
+    ![CMD_PROMPTS](./img/era_cli_option.jpg)
+    
 - `era` and respond to prompts
 
-
-**As a python module** 
+    ![CMD_PROMPTS](./img/era_cli_with_prompts.jpg)
+    
+   
+**2. As a python module** 
 
 Import into python script
 - `from ratealert import ConversionAlert`
@@ -41,14 +49,14 @@ Import into python script
 Call the constructor, wait for alert, profit!
 - `ConversionAlert(source, target, alert_rate)`
 
---- 
-
-#### Example
+**Example**
 
     from ratealert import ConversionAlert
     ConversionAlert('SEK', 'INR', 8.5)
 
 This will create a notification when the Transferwise exchange rate crosses the alert rate. 
+
+![CMD_PROMPTS](./img/era_notification.jpg)
 
 The rates will be checked every five minutes.
 
@@ -58,7 +66,7 @@ Exit the script by Ctrl+C
 
 #### Change notes
 
-0.4 - Command line execution, input prompts
+0.6 - Command line execution, input prompts
 
 0.3 - Alert on a target conversion rate
  
@@ -69,7 +77,7 @@ Exit the script by Ctrl+C
 
 #### Next steps
 
-- OAuth login for Transferwise
 - Quotation request and transfer lock on target conversion rate
+- OAuth login for Transferwise
 - Linux support
 
