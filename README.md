@@ -3,7 +3,7 @@ Exchange Rate Alert
 
 Creates desktop alerts when the Transferwise exchange rates hit a target rate. Tries every five minutes.
 
-![CMD_PROMPTS](./img/era_notification.jpg)
+![Notification](./img/era_notification.jpg)
 
 Currently running on Windows, PIP version 20.0.1
 
@@ -34,11 +34,11 @@ Install package from pip
 
 - `era --source SEK --target INR --alert-rate 8.5`
 
-    ![CMD_PROMPTS](./img/era_cli_option.jpg)
+    ![CMD](./img/era_cli_option.JPG)
     
 - `era` and respond to prompts
 
-    ![CMD_PROMPTS](./img/era_cli_with_prompts.jpg)
+    ![CMD_PROMPTS](./img/era_cli_with_prompts.JPG)
     
    
 **2. As a python module** 
@@ -56,7 +56,7 @@ Call the constructor, wait for alert, profit!
 
 This will create a notification when the Transferwise exchange rate crosses the alert rate. 
 
-![CMD_PROMPTS](./img/era_notification.jpg)
+![Notification](./img/era_notification.jpg)
 
 The rates will be checked every five minutes.
 
