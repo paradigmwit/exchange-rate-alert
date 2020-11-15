@@ -3,10 +3,6 @@ import time
 import click
 from sys import platform
 from ratealert.transferwiseclient import TransferwiseClient
-from ratealert.auth.linuxauth import LinuxAuth
-from ratealert.auth.windowsauth import WindowsAuth
-from ratealert.notification.linuxnotification import LinuxNotification
-from ratealert.notification.windowsnotification import WindowsNotification
 
 
 class ConversionAlert(object):
@@ -58,8 +54,12 @@ class ConversionAlert(object):
     def _identify_platform(self):
         """Identifies the system OS"""
         if platform == "linux" or platform == "linux2":
+            from ratealert.auth.linuxauth import LinuxAuth
+            from ratealert.notification.linuxnotification import LinuxNotification
             return LinuxAuth(), LinuxNotification()
         elif platform == "win32":
+            from ratealert.auth.windowsauth import WindowsAuth
+            from ratealert.notification.windowsnotification import WindowsNotification
             return WindowsAuth(), WindowsNotification()
 
     def _handle_response(self, response):

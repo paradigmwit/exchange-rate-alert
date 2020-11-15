@@ -18,6 +18,11 @@ The program will try and find the access token in the following manner
  1. System Variable named TCR - create a system variable named TCR
  
  2. Configuration file - located at `%HOMEDRIVE%%HOMEPATH%/.tcr` on windows or `~/.tcr` on linux
+
+Add the token information in the file
+
+    [default]
+    token=aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee
                       
 ---
 
@@ -65,6 +70,8 @@ Exit the script by Ctrl+C
 ---
 
 #### Change notes
+
+0.7 - support for Linux, installs packages based on OS
 
 0.6 - Command line execution, input prompts
 
