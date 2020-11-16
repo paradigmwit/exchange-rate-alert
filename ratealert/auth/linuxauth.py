@@ -20,7 +20,7 @@ class LinuxAuth:
     def _get_auth_from_property(self):
         """Loading auth code for unix system"""
         home = str(Path.home())
-        prop_file = home + '\.tcr'
+        prop_file = home + '/.tcr'
         config = ConfigParser()
         config.read(prop_file)
         token = config.get('default', 'token')

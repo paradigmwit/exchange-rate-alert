@@ -1,11 +1,11 @@
 Exchange Rate Alert
 ---
 
-Creates desktop alerts when the Transferwise exchange rates hit a target rate. Tries every five minutes.
+Creates desktop alerts when the Transferwise exchange rates hit a target rate. Checks conversion rate every time the polling interval has passed.
 
 ![Notification](./img/era_notification.jpg)
 
-Currently running on Windows, PIP version 20.0.1
+Currently running on Windows and Linux, PIP version 20.0.1
 
 ---
 
@@ -37,7 +37,7 @@ Install package from pip
 
 **1. From Command Prompt** 
 
-- `era --source SEK --target INR --alert-rate 8.5`
+- `era --source SEK --target INR --alert-rate 8.5 --poll-interval=30`
 
     ![CMD](./img/era_cli_option.JPG)
     
@@ -52,24 +52,26 @@ Import into python script
 - `from ratealert import ConversionAlert`
     
 Call the constructor, wait for alert, profit!
-- `ConversionAlert(source, target, alert_rate)`
+- `ConversionAlert(source, target, alert_rate, poll_interval)`
 
 **Example**
 
     from ratealert import ConversionAlert
-    ConversionAlert('SEK', 'INR', 8.5)
+    ConversionAlert('SEK', 'INR', 8.5, 60)
 
 This will create a notification when the Transferwise exchange rate crosses the alert rate. 
 
 ![Notification](./img/era_notification.jpg)
 
-The rates will be checked every five minutes.
+The rates will be checked every 60 seconds if the polling interval option is not provided.
 
 Exit the script by Ctrl+C
 
 ---
 
 #### Change notes
+
+0.8 - Polling interval as an option, minor fix for Linux
 
 0.7 - support for Linux, installs packages based on OS
 
@@ -86,5 +88,5 @@ Exit the script by Ctrl+C
 
 - Quotation request and transfer lock on target conversion rate
 - OAuth login for Transferwise
-- Linux support
+- Support for other clients (Remitly?) 
 

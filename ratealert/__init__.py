@@ -7,14 +7,18 @@ from ratealert.transferwiseclient import TransferwiseClient
 
 class ConversionAlert(object):
 
-    def __init__(self, source, target, alert_rate):
+    def __init__(self, source, target, alert_rate, poll_interval):
         """
         Creates a transfer alert when the transfer rate is greater than target rate
         :param source: source currency
         :param target: target currency
         :param alert_rate: rate at which to raise alert
+        :param poll_interval: time interval in seconds to poll transferwise service
         """
         self._thread = None
+
+        if poll_interval is None or int(poll_interval) < 60:
+            poll_interval = 60
 
         try:
             alert_rate = float(alert_rate)
@@ -29,7 +33,7 @@ class ConversionAlert(object):
                 click.echo("The current exchange rate is - " + str(current_rate))
                 if current_rate > alert_rate:
                     self._set_alert(current_rate, notification)
-                time.sleep(int(300))
+                time.sleep(int(poll_interval))
         except KeyboardInterrupt:
             exit(0)
         except InterruptedError:
